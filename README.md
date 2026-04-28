@@ -8,7 +8,8 @@ Nuestra Solución: CryptoCapi fue diseñado bajo una "Constitución Técnica" in
 
 La Matemática Certifica, la IA Narra.
 
-⚙️ La Arquitectura de Tres Motores (The Tri-Engine Core)
+⚙️ La Arquitectura de Tres Motores (The Tri-Engine Core):
+
 📡 1. Arquetipo A: Motor Radar
 Rol: El Vigilante Narrativo y Detector de Ruido.
 Stack: Python + Groq (Llama-3.3-70B) + Web Scraping Concurrente.
@@ -38,8 +39,6 @@ Zero-Any Policy: 100% TypeScript. Validaciones estrictas con Zod (.strict()). Si
 Data Collector (Python): Tipado estricto con Pydantic y Mypy.
 Persistencia: PostgreSQL (Neon Serverless) + Redis (Upstash) para Caché ultra-rápida.
 DevOps: Ambiente 100% Dockerizado con Multi-stage builds y Healthchecks institucionales.
-📸 Interfaz de Usuario
-[ 🚀 Arrastra aquí una captura de pantalla de tu Dashboard ]
 
 📬 El Arquitecto
 Project Lead & CEO: [Jesús González / https://www.linkedin.com/in/jegoba90/]
