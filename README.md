@@ -42,7 +42,8 @@ DevOps: Ambiente 100% Dockerizado con Multi-stage builds y Healthchecks instituc
 [ 🚀 Arrastra aquí una captura de pantalla de tu Dashboard ]
 
 📬 El Arquitecto
-Project Lead & CTMO: [Tu Nombre / Enlace a LinkedIn]
+Project Lead & CEO: [Jesús González / https://www.linkedin.com/in/jegoba90/]
 Filosofía B2B: "Vendemos Soberanía Informativa. Entregamos la infraestructura de un Hedge Fund a través de una API REST."
+
 "Nosotros no te decimos qué comprar. Te damos la matemática pura para que tú decidas con qué ganar."
 
