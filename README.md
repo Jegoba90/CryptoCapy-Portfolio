@@ -46,3 +46,5 @@ Filosofía B2B: "Vendemos Soberanía Informativa. Entregamos la infraestructura 
 
 "Nosotros no te decimos qué comprar. Te damos la matemática pura para que tú decidas con qué ganar."
 
+https://www.cryptocapi.com/
+
