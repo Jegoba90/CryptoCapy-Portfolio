@@ -14,6 +14,7 @@ Rol: El Vigilante Narrativo y Detector de Ruido.
 Stack: Python + Groq (Llama-3.3-70B) + Web Scraping Concurrente.
 Mecánica: Ingesta flujos masivos de RSS de fuentes Institucionales Tier-1 (Bloomberg, Reuters, Cointelegraph).
 Output: Genera un análisis de sentimiento puro y un resumen ejecutivo de 15 segundos, eliminando el clickbait.
+
 📐 2. Arquetipo B: Motor Quant PRO
 Rol: El "Cerebro Matemático". Dictamina la realidad del mercado mediante estadística dura.
 Modelos Estadísticos:
@@ -21,6 +22,7 @@ Matriz de Intercepción de Riesgo (RIM): Un sistema de 4 capas defensivas. Eval�
 Filtros de Kalman: Reducción de ruido algorítmico para suavizar la curva de precios y descartar "falsos quiebres".
 Exponentes de Lyapunov: Mide la predictibilidad del mercado aplicando Teoría del Caos. Si el sistema es altamente caótico, el confidence_score se reduce automáticamente.
 Matriz de Correlación de Pearson: Mide la dependencia del activo frente a vectores macro (S&P 500, DXY).
+
 🐳 3. Arquetipo C: Motor Quant Plus (V3.0)
 Rol: Información Asimétrica On-Chain.
 Mecánica: Lee la blockchain cruda antes de que se convierta en una noticia.
