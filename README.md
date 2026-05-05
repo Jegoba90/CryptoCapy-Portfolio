@@ -41,7 +41,7 @@ Persistencia: PostgreSQL (Neon Serverless) + Redis (Upstash) para Caché ultra-r
 DevOps: Ambiente 100% Dockerizado con Multi-stage builds y Healthchecks institucionales.
 
 📬 El Arquitecto
-Project Lead & CEO: [Jesús González / https://www.linkedin.com/in/jegoba90/]
+Project Lead & CEO: Jesús González / https://www.linkedin.com/in/jegoba90/
 Filosofía B2B: "Vendemos Soberanía Informativa. Entregamos la infraestructura de un Hedge Fund a través de una API REST."
 
 "Nosotros no te decimos qué comprar. Te damos la matemática pura para que tú decidas con qué ganar."
