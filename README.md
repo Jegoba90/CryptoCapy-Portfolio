@@ -1,50 +1,160 @@
-🚀 CryptoCapi: Institutional Intelligence Terminal
-"En un mercado dominado por el ruido mediático y las especulaciones de la IA, nosotros proveemos la señal pura. Mientras otros adivinan, nosotros calculamos mediante cálculo estocástico y teoría del caos."
+<div align="center">
 
-🏛️ La Constitución Técnica (CTC-2026): El Fin de las Alucinaciones
-La integración de Modelos de Lenguaje Grandes (LLMs) en finanzas introdujo un riesgo inaceptable: Las Alucinaciones Numéricas. Un inversor institucional no puede depender de un chatbot que inventa niveles de soporte o extrapola precios inexistentes.
+# 🐹 CryptoCapi · Terminal de Inteligencia Institucional
 
-Nuestra Solución: CryptoCapi fue diseñado bajo una "Constitución Técnica" inmutable. Hemos construido un Pipeline de Override Matemático. La IA (Llama-3.3) solo tiene permiso para analizar el sentimiento semántico y explicar el contexto. Todos los números y diagnósticos son inyectados en tiempo real por un motor matemático en Python que tiene la última palabra.
+### *Matemática pura para decisiones cripto. Cero alucinaciones de IA.*
 
-La Matemática Certifica, la IA Narra.
+Plataforma de análisis de criptomonedas que **separa el análisis semántico del cálculo matemático**
+a través de tres motores especializados — para que los números nunca mientan.
 
-⚙️ La Arquitectura de Tres Motores (The Tri-Engine Core):
+<br/>
 
-📡 1. Arquetipo A: Motor Radar
-Rol: El Vigilante Narrativo y Detector de Ruido.
-Stack: Python + Groq (Llama-3.3-70B) + Web Scraping Concurrente.
-Mecánica: Ingesta flujos masivos de RSS de fuentes Institucionales Tier-1 (Bloomberg, Reuters, Cointelegraph).
-Output: Genera un análisis de sentimiento puro y un resumen ejecutivo de 15 segundos, eliminando el clickbait.
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
-📐 2. Arquetipo B: Motor Quant PRO
-Rol: El "Cerebro Matemático". Dictamina la realidad del mercado mediante estadística dura.
-Modelos Estadísticos:
-Matriz de Intercepción de Riesgo (RIM): Un sistema de 4 capas defensivas. Evalúa el Z-Score (30 ventanas). Si $|Z| \ge 3.0$ (Capa 1: Shock), el sistema fuerza un estado de EXTREME_VOLATILITY.
-Filtros de Kalman: Reducción de ruido algorítmico para suavizar la curva de precios y descartar "falsos quiebres".
-Exponentes de Lyapunov: Mide la predictibilidad del mercado aplicando Teoría del Caos. Si el sistema es altamente caótico, el confidence_score se reduce automáticamente.
-Matriz de Correlación de Pearson: Mide la dependencia del activo frente a vectores macro (S&P 500, DXY).
+<br/>
 
-🐳 3. Arquetipo C: Motor Quant Plus (V3.0)
-Rol: Información Asimétrica On-Chain.
-Mecánica: Lee la blockchain cruda antes de que se convierta en una noticia.
-Modelos:
-Exchange Netflows: Detección de acumulación o distribución institucional en tiempo real.
-Ratio MVRV: Modelo de valoración fundamental para determinar zonas de sobrecompra o infravaloración.
-Validación de Salud de Red: Cruce de datos de Direcciones Activas y Gwei (Gas).
-🛠️ Full-Stack Rigor & Infraestructura
-El diseño de sistema de CryptoCapi cumple con estándares de Ingeniería Staff:
+![Estado](https://img.shields.io/badge/estado-en_producción-success?style=flat-square)
+![Type Safe](https://img.shields.io/badge/type--safe-strict-blue?style=flat-square)
+![CI](https://img.shields.io/badge/CI-quality--gate-blueviolet?style=flat-square)
+![Tests](https://img.shields.io/badge/tests-Jest_·_Vitest_·_Pytest_·_Playwright-orange?style=flat-square)
 
-API Gateway (Node.js + Express): Construido bajo Arquitectura Hexagonal. La lógica de negocio está desacoplada de la infraestructura.
-Zero-Any Policy: 100% TypeScript. Validaciones estrictas con Zod (.strict()). Si el dato no es perfecto, el sistema lo rechaza (End-to-End Type Safety).
-Data Collector (Python): Tipado estricto con Pydantic y Mypy.
-Persistencia: PostgreSQL (Neon Serverless) + Redis (Upstash) para Caché ultra-rápida.
-DevOps: Ambiente 100% Dockerizado con Multi-stage builds y Healthchecks institucionales.
+</div>
 
-📬 El Arquitecto
-Project Lead & CEO: Jesús González / https://www.linkedin.com/in/jegoba90/
-Filosofía B2B: "Vendemos Soberanía Informativa. Entregamos la infraestructura de un Hedge Fund a través de una API REST."
+---
 
-"Nosotros no te decimos qué comprar. Te damos la matemática pura para que tú decidas con qué ganar."
+## 🎯 El problema que resolvemos
 
-https://www.cryptocapi.com/
+> Los modelos de lenguaje **alucinan**. En finanzas, una alucinación cuesta dinero real.
 
+CryptoCapi resuelve esto con una arquitectura donde la **IA solo interpreta narrativa** (noticias, sentimiento)
+y **toda decisión numérica la calcula matemática verificable** — Z-Scores, filtros de Kalman, exponentes de
+Lyapunov y datos on-chain leídos directamente de la blockchain.
+
+<div align="center">
+
+**No te decimos qué comprar. Te damos la matemática pura para que tú decidas.**
+
+</div>
+
+---
+
+## 🧠 Arquitectura · Tres Motores Especializados
+
+| Motor | Rol | Tecnología clave |
+|:---|:---|:---|
+| 📡 **Motor Radar** | Ingesta noticias institucionales (Bloomberg, Reuters, Cointelegraph) y genera sentimiento + resúmenes ejecutivos sin sensacionalismo. | `Python` · `Groq Llama-3.3` · `feedparser` · `BeautifulSoup` |
+| 📊 **Motor Quant PRO** | Rigor cuantitativo: Z-Score sobre 30 ventanas, filtro de Kalman para reducir ruido, exponente de Lyapunov para medir el caos del mercado y matrices de correlación de Pearson. | `NumPy` · `SciPy` · `Pandas` · `TA-Lib` |
+| ⛓️ **Motor Quant Plus** | Lee la blockchain directamente: netflows de exchanges, ratios MVRV para valoración y métricas de salud de red — antes de que la información llegue al mercado. | `Web3` · `Moralis` · `WebSockets` |
+
+---
+
+## 🛠️ Stack Tecnológico Completo
+
+### 🎨 Frontend
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
+
+> `Lightweight Charts` (TradingView) · `Swiper` · `jsVectorMap` · `Prism.js` · `DOMPurify` (sanitización XSS) · `date-fns` · `Temporal API`
+
+### ⚙️ Backend / API
+![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express_5-000000?style=for-the-badge&logo=express&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Swagger](https://img.shields.io/badge/OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![Sentry](https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white)
+
+> `Helmet` · `CORS` · `express-rate-limit` · `compression` · `bcryptjs` · `Pino` (logging) · `Resend` (email transaccional) · `yahoo-finance2` · `Zod` (validación end-to-end)
+
+### 🐍 Motor Cuantitativo (Python · Data Science)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
+
+> `TA-Lib` (análisis técnico) · `Groq` (Llama-3.3) · `Web3` · `Moralis` · `feedparser` · `BeautifulSoup4` · `cloudscraper` · `WebSockets` · `APScheduler`
+
+### 🗄️ Datos & Persistencia
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Neon](https://img.shields.io/badge/Neon_Serverless-00E599?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=redis&logoColor=white)
+![Upstash](https://img.shields.io/badge/Upstash-00E9A3?style=for-the-badge&logo=upstash&logoColor=white)
+
+### ☁️ DevOps & Infraestructura
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Cloud Build](https://img.shields.io/badge/Cloud_Build-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase_Hosting-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+
+> Despliegue multi-servicio containerizado · `Docker Compose` (dev/staging/prod) · `Cloud Functions` · Registry `gcr.io`
+
+### ✅ Calidad & Testing
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black)
+![Ruff](https://img.shields.io/badge/Ruff-D7FF64?style=for-the-badge&logo=ruff&logoColor=black)
+
+> Tipado estricto verificado con `Mypy` · `Pyright` · `type-coverage` · análisis de código muerto con `ts-prune`
+
+---
+
+## 🔄 Flujo de Datos
+
+```mermaid
+flowchart LR
+    A["🌐 Fuentes<br/>Bloomberg · Reuters · CoinGecko · On-chain"] --> B["📡 Motor Radar<br/>Python + Groq Llama-3.3"]
+    A --> C["📊 Motor Quant PRO<br/>NumPy · SciPy"]
+    A --> D["⛓️ Motor Quant Plus<br/>Web3 · Moralis"]
+    B --> E[("🗄️ PostgreSQL<br/>Neon")]
+    C --> E
+    D --> E
+    B --> F[("⚡ Redis<br/>Upstash")]
+    C --> F
+    D --> F
+    E --> G{"⚙️ API Express<br/>TypeScript"}
+    F --> G
+    G --> H["🎨 Frontend<br/>Vite + Tailwind"]
+```
+
+---
+
+## 🔒 Calidad de Ingeniería
+
+- **Type-safe de extremo a extremo** — TypeScript `strict` + validación `Zod` en runtime; Python tipado con `Pydantic`, `Mypy` y `Pyright`.
+- **Quality Gate en CI** — GitHub Actions ejecuta tipos, linters, tests (Jest/Pytest) y E2E (Playwright) en cada push.
+- **Seguridad por defecto** — `Helmet`, rate limiting, sanitización XSS con DOMPurify, `npm audit` integrado y hashing `bcrypt`.
+- **Observabilidad** — monitoreo de errores y profiling con `Sentry`; logging estructurado con `Pino`.
+
+---
+
+<div align="center">
+
+## 💡 Filosofía
+
+> ### *"Nosotros no te decimos qué comprar.*
+> ### *Te damos la matemática pura para que tú decidas."*
+
+<br/>
+
+**Líder de proyecto:** Jesús González · [@Jegoba90](https://github.com/Jegoba90)
+
+<br/>
+
+![Hecho con](https://img.shields.io/badge/hecho_con-matemática_pura-blueviolet?style=for-the-badge)
+
+</div>
