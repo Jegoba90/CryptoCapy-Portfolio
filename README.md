@@ -23,13 +23,6 @@ a través de tres motores especializados — para que los números nunca mientan
 ![CI](https://img.shields.io/badge/CI-quality--gate-blueviolet?style=flat-square)
 ![Tests](https://img.shields.io/badge/tests-Jest_·_Vitest_·_Pytest_·_Playwright-orange?style=flat-square)
 
-<br/>
-<br/>
-
-<img src="assets/dashboard.jpg" alt="Dashboard de mercado de CryptoCapi" width="100%"/>
-
-<sub>Terminal de mercado en tiempo real · Market Cap global · Fear &amp; Greed · dominancia BTC/ETH · ranking de activos.</sub>
-
 </div>
 
 ---
@@ -74,18 +67,6 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 **Umbrales inmutables:** `|cambio diario| ≥ 5%` o ruptura de Bollinger → alerta de volatilidad · `|Z-Score| ≥ 3.0` → anomalía (cisne negro).
 
 La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre buckets de cuota independientes** con *backoff* exponencial, de modo que ningún motor agote la capacidad de otro.
-
----
-
-## 📸 La Plataforma en Acción
-
-<div align="center">
-
-<img src="assets/market-map.png" alt="Mapa de Mercado — treemap de capitalización" width="100%"/>
-
-<sub>**Mapa de Mercado** — visualización treemap de capitalización y rendimiento del Top 50 en un solo vistazo.</sub>
-
-</div>
 
 ---
 
