@@ -52,9 +52,9 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 
 | Motor | Rol | Tecnología clave |
 |:---|:---|:---|
-| 📡 **Motor Radar** | Ingesta noticias institucionales (Bloomberg, Reuters, Cointelegraph) y genera sentimiento + resúmenes ejecutivos sin sensacionalismo. | `Python` · `Groq Llama-3.3` · `feedparser` · `BeautifulSoup` |
-| 📊 **Motor Quant PRO** | Rigor cuantitativo: Z-Score sobre 30 ventanas, filtro de Kalman para reducir ruido, exponente de Lyapunov para medir el caos del mercado y matrices de correlación de Pearson. | `NumPy` · `SciPy` · `Pandas` · `TA-Lib` |
-| ⛓️ **Motor Quant Plus** | Lee la blockchain directamente: netflows de exchanges, ratios MVRV para valoración y métricas de salud de red — antes de que la información llegue al mercado. | `Web3` · `Moralis` · `WebSockets` |
+| 📡 **Motor Radar** | Ingesta noticias institucionales (Bloomberg, Reuters, Cointelegraph) y genera sentimiento + resúmenes ejecutivos sin sensacionalismo. | `Python` · `LLM engine (multi-model)` · `feedparser` · `BeautifulSoup` |
+| 📊 **Motor Quant PRO** | Rigor cuantitativo: Z-Score sobre múltiples ventanas temporales, filtro de Kalman para reducir ruido, exponente de Lyapunov para medir el caos del mercado y matrices de correlación de Pearson. | `NumPy` · `SciPy` · `Pandas` · `TA-Lib` |
+| ⛓️ **Motor Quant Plus** | Lee la blockchain directamente: netflows de exchanges, ratios MVRV para valoración y métricas de salud de red — antes de que la información llegue al mercado. | `Web3` · `Web3 data provider` · `WebSockets` |
 
 ---
 
@@ -64,12 +64,12 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 
 | Capa | Qué hace |
 |:---|:---|
-| **1 · Determinista** | Python calcula *todos* los valores numéricos (Bandas de Bollinger SMA-20/2σ, Z-Score logarítmico de 30 períodos, régimen de mercado) **antes** de invocar al LLM. |
+| **1 · Determinista** | Python calcula *todos* los valores numéricos (Bandas de Bollinger, Z-Score logarítmico, régimen de mercado) **antes** de invocar al LLM. |
 | **2 · Narrativa** | Los valores deterministas se inyectan en el prompt como contexto *no negociable*; el LLM solo escribe texto sobre cifras ya fijadas. |
 | **3 · Override numérico** | Tras la respuesta del LLM, Python **sobrescribe** métricas, sentiment y confidence con los valores deterministas. |
-| **4 · Filtrado léxico** | Filtros deterministas eliminan frases alucinadas (p. ej. "volumen moderado", "claramente bajista") que sobrevivieron al prompt, con *gates* basados en el Z-Score y el sentiment. |
+| **4 · Filtrado léxico** | Filtros deterministas eliminan frases alucinadas que sobrevivieron al prompt, usando *gates* basados en Z-Score y sentiment. |
 
-**Umbrales inmutables:** `|cambio diario| ≥ 5%` o ruptura de Bollinger → alerta de volatilidad · `|Z-Score| ≥ 3.0` → anomalía (cisne negro).
+**Umbrales inmutables:** cambios de volatilidad extrema o rupturas de bandas estadísticas disparan alertas automáticas. Anomalías de mercado se detectan mediante umbrales de Z-Score calibrados sobre datos históricos.
 
 La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre buckets de cuota independientes** con *backoff* exponencial, de modo que ningún motor agote la capacidad de otro.
 
@@ -96,7 +96,7 @@ La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre bucket
 ![Swagger](https://img.shields.io/badge/OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![Sentry](https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white)
 
-> `Helmet` · `CORS` · `express-rate-limit` · `compression` · `bcryptjs` · `Pino` (logging) · `Resend` (email transaccional) · `yahoo-finance2` · `Zod` (validación end-to-end)
+> `Helmet` · `CORS` · `express-rate-limit` · `compression` · `bcryptjs` · `Pino` (logging) · `email transaccional` · `yahoo-finance2` · `Zod` (validación end-to-end)
 
 ### 🐍 Motor Cuantitativo (Python · Data Science)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -105,13 +105,13 @@ La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre bucket
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
 
-> `TA-Lib` (análisis técnico) · `Groq` (Llama-3.3) · `Web3` · `Moralis` · `feedparser` · `BeautifulSoup4` · `cloudscraper` · `WebSockets` · `APScheduler`
+> `TA-Lib` (análisis técnico) · `LLM engine (multi-model)` · `Web3` · `Web3 data provider` · `feedparser` · `BeautifulSoup4` · `cloudscraper` · `WebSockets` · `APScheduler`
 
 ### 🗄️ Datos & Persistencia
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Neon](https://img.shields.io/badge/Neon_Serverless-00E599?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=redis&logoColor=white)
-![Upstash](https://img.shields.io/badge/Upstash-00E9A3?style=for-the-badge&logo=upstash&logoColor=white)
+
+> PostgreSQL serverless · Redis gestionado · arquitectura cache-first con TTL
 
 ### ☁️ DevOps & Infraestructura
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
@@ -120,7 +120,7 @@ La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre bucket
 ![Firebase](https://img.shields.io/badge/Firebase_Hosting-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
 
-> Despliegue multi-servicio containerizado · `Docker Compose` (dev/staging/prod) · `Cloud Functions` · Registry `gcr.io`
+> Despliegue multi-servicio containerizado · `Docker Compose` (dev/staging/prod) · `Cloud Functions` · Container Registry
 
 ### ✅ Calidad & Testing
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
@@ -139,13 +139,13 @@ La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre bucket
 
 ```mermaid
 flowchart LR
-    A["🌐 Fuentes<br/>Bloomberg · Reuters · CoinGecko · On-chain"] --> B["📡 Motor Radar<br/>Python + Groq Llama-3.3"]
+    A["🌐 Fuentes<br/>Bloomberg · Reuters · CoinGecko · On-chain"] --> B["📡 Motor Radar<br/>Python + LLM engine"]
     A --> C["📊 Motor Quant PRO<br/>NumPy · SciPy"]
-    A --> D["⛓️ Motor Quant Plus<br/>Web3 · Moralis"]
-    B --> E[("🗄️ PostgreSQL<br/>Neon")]
+    A --> D["⛓️ Motor Quant Plus<br/>Web3 · On-chain data"]
+    B --> E[("🗄️ PostgreSQL<br/>Serverless")]
     C --> E
     D --> E
-    B --> F[("⚡ Redis<br/>Upstash")]
+    B --> F[("⚡ Redis<br/>Managed")]
     C --> F
     D --> F
     E --> G{"⚙️ API Express<br/>TypeScript"}
@@ -167,11 +167,155 @@ flowchart LR
 - **Value Objects** — el dinero nunca es un `number` crudo; se encapsula inmutable para impedir estados inválidos.
 - **Dependencias por arquetipo** — el motor ligero calcula sin NumPy; solo el Quant Engine carga NumPy/Kalman → imágenes Docker mínimas.
 - **Gestión explícita de recursos** — `using` / `await using` (ES2025) cierran las conexiones serverless automáticamente y evitan fugas.
-- **Cache-First** — Redis/Upstash con TTL delante de PostgreSQL en todo `GET` público.
+- **Cache-First** — Redis gestionado con TTL delante de PostgreSQL en todo `GET` público.
 - **Degradación honesta** — en modo *fallback*, la confianza reportada nunca es `HIGH`.
 - **Type-safe de extremo a extremo** — verificado con `Mypy`, `Pyright` y `type-coverage`.
 - **Quality Gate en CI** — GitHub Actions corre tipos, linters, tests (Jest/Pytest) y E2E (Playwright) en cada push.
-- **Seguridad & observabilidad** — `Helmet`, rate limiting, sanitización XSS (DOMPurify), `bcrypt`; errores con `Sentry`, logs estructurados con `Pino`.
+- **Seguridad & observabilidad** — `Helmet`, rate limiting, sanitización XSS (DOMPurify), `bcrypt`; error monitoring y logs estructurados.
+
+---
+
+## 🔬 Outputs de ejemplo · Qué devuelve cada motor
+
+> Respuestas reales del sistema sobre **BTC · 2026-05-25**. Los datos de entrada, umbrales internos y pesos de indicadores no se publican.
+
+<details>
+<summary>📡 Motor Radar — Sentimiento institucional</summary>
+
+```json
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T19:01:32.991Z",
+  "data": {
+    "engine_used": "radar",
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "summary": "Lateralización de rango.",
+    "sentiment": "neutral",
+    "statistical_anomaly_detected": false,
+    "confidence": {
+      "score": 0.61,
+      "label": "MEDIUM"
+    },
+    "math_diagnostics": {
+      "z_score": -0.1598,
+      "bollinger_bandwidth": 0.012,
+      "market_regime": "RANGING_CHOP",
+      "extreme_volatility_detected": false,
+      "data_quality": "PARTIAL",
+      "sentiment_override": false,
+      "anomaly_details": null
+    },
+    "analysis": {
+      "detailed_report": "El activo opera en un rango lateral, con el precio cerca de la banda inferior de soporte. La volatilidad es moderada. El régimen de mercado sugiere una fase de indecisión.",
+      "sources_verified": [
+        {
+          "title": "Bitcoin, crypto prices tick up as US-Iran peace deal odds climb",
+          "url": "https://www.coindesk.com/markets/2026/05/25/...",
+          "credibility": "Tier 1"
+        },
+        {
+          "title": "Now You Can Buy Bitcoin, XRP and More in ChatGPT via MoonPay",
+          "url": "https://decrypt.co/368875/...",
+          "credibility": "Tier 2"
+        }
+      ],
+      "sources_window": "24h"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>📊 Motor Quant PRO — Análisis cuantitativo multi-timeframe</summary>
+
+```json
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T20:18:36.005Z",
+  "data": {
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "resolved_signal": "NEUTRAL_CHOP",
+    "resolved_score": 52,
+    "mir_diagnostics": {
+      "base_raw_score": 55,
+      "chaos_penalty_applied": true,
+      "explanation": "Convicción direccional contraída por régimen de caos sistémico detectado."
+    },
+    "macro_1d": {
+      "timeframe": "1d",
+      "confluence_score": 55,
+      "signal": "NEUTRAL_CHOP",
+      "regime": {
+        "lyapunov": 1.893,
+        "status": "CHAOTIC",
+        "signal_confidence": "LOW"
+      }
+    },
+    "micro_4h": {
+      "timeframe": "4h",
+      "confluence_score": 60,
+      "signal": "NEUTRAL_CHOP",
+      "regime": {
+        "lyapunov": 2.031,
+        "status": "CHAOTIC",
+        "signal_confidence": "LOW"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>⛓️ Motor Quant Plus — Datos on-chain</summary>
+
+```json
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T20:17:29.969Z",
+  "data": {
+    "engine_used": "quant_plus",
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "summary": "Equilibrio técnico.",
+    "sentiment": "neutral",
+    "statistical_anomaly_detected": false,
+    "confidence": {
+      "score": 0.61,
+      "label": "MEDIUM"
+    },
+    "onchain_stats": {
+      "network": "bitcoin-mainnet",
+      "network_congestion": "LOW",
+      "whale_activity_alert": true,
+      "onchain_confidence_score": 0.9
+    },
+    "actionable_insight": {
+      "signal": "HOLD",
+      "risk_level": "LOW"
+    },
+    "math_diagnostics": {
+      "z_score": 0.1705,
+      "bollinger_bandwidth": 0.0988,
+      "market_regime": "RANGING_CHOP",
+      "extreme_volatility_detected": false,
+      "data_quality": "OPTIMAL",
+      "sentiment_override": false,
+      "anomaly_details": null
+    },
+    "analysis": {
+      "detailed_report": "Régimen de mercado: lateralización. Precio opera en el tercio inferior de las bandas de Bollinger. Z-Score (0.17) en zona neutral — sin anomalías estadísticas."
+    }
+  }
+}
+```
+
+</details>
 
 ---
 
