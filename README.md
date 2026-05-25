@@ -60,6 +60,23 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 
 ---
 
+## 🛡️ Pipeline Anti-Alucinación · Defensa en 4 Capas
+
+> El LLM redacta la narrativa. **Python certifica los números y vigila las palabras.** La IA nunca tiene la última palabra sobre una cifra.
+
+| Capa | Qué hace |
+|:---|:---|
+| **1 · Determinista** | Python calcula *todos* los valores numéricos (Bandas de Bollinger SMA-20/2σ, Z-Score logarítmico de 30 períodos, régimen de mercado) **antes** de invocar al LLM. |
+| **2 · Narrativa** | Los valores deterministas se inyectan en el prompt como contexto *no negociable*; el LLM solo escribe texto sobre cifras ya fijadas. |
+| **3 · Override numérico** | Tras la respuesta del LLM, Python **sobrescribe** métricas, sentiment y confidence con los valores deterministas. |
+| **4 · Filtrado léxico** | Filtros deterministas eliminan frases alucinadas (p. ej. "volumen moderado", "claramente bajista") que sobrevivieron al prompt, con *gates* basados en el Z-Score y el sentiment. |
+
+**Umbrales inmutables:** `|cambio diario| ≥ 5%` o ruptura de Bollinger → alerta de volatilidad · `|Z-Score| ≥ 3.0` → anomalía (cisne negro).
+
+La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre buckets de cuota independientes** con *backoff* exponencial, de modo que ningún motor agote la capacidad de otro.
+
+---
+
 ## 📸 La Plataforma en Acción
 
 <div align="center">
@@ -152,12 +169,23 @@ flowchart LR
 
 ---
 
-## 🔒 Calidad de Ingeniería
+## ⚖️ Principios de Ingeniería
 
-- **Type-safe de extremo a extremo** — TypeScript `strict` + validación `Zod` en runtime; Python tipado con `Pydantic`, `Mypy` y `Pyright`.
-- **Quality Gate en CI** — GitHub Actions ejecuta tipos, linters, tests (Jest/Pytest) y E2E (Playwright) en cada push.
-- **Seguridad por defecto** — `Helmet`, rate limiting, sanitización XSS con DOMPurify, `npm audit` integrado y hashing `bcrypt`.
-- **Observabilidad** — monitoreo de errores y profiling con `Sentry`; logging estructurado con `Pino`.
+> Reglas constitucionales que todo Pull Request debe cumplir.
+
+- **Zero-Any** — prohibido `any` en TypeScript y Python; lo desconocido es `unknown` + *type guards*.
+- **Arquitectura Hexagonal** — el dominio nunca depende de la infraestructura; cambiar la base de datos no toca la lógica de negocio.
+- **Contratos compartidos** — única fuente de verdad de tipos entre frontend y backend; nadie adivina la forma de la API.
+- **Cronometría determinista** — `Temporal` API (ES2025) en lugar de `Date` nativo; sin errores de zona horaria/DST en software financiero.
+- **Validación paranoica** — `Zod .strict()` en el backend + `Pydantic` en el collector; validación bilateral antes de persistir.
+- **Value Objects** — el dinero nunca es un `number` crudo; se encapsula inmutable para impedir estados inválidos.
+- **Dependencias por arquetipo** — el motor ligero calcula sin NumPy; solo el Quant Engine carga NumPy/Kalman → imágenes Docker mínimas.
+- **Gestión explícita de recursos** — `using` / `await using` (ES2025) cierran las conexiones serverless automáticamente y evitan fugas.
+- **Cache-First** — Redis/Upstash con TTL delante de PostgreSQL en todo `GET` público.
+- **Degradación honesta** — en modo *fallback*, la confianza reportada nunca es `HIGH`.
+- **Type-safe de extremo a extremo** — verificado con `Mypy`, `Pyright` y `type-coverage`.
+- **Quality Gate en CI** — GitHub Actions corre tipos, linters, tests (Jest/Pytest) y E2E (Playwright) en cada push.
+- **Seguridad & observabilidad** — `Helmet`, rate limiting, sanitización XSS (DOMPurify), `bcrypt`; errores con `Sentry`, logs estructurados con `Pino`.
 
 ---
 
