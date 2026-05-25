@@ -23,6 +23,13 @@ a través de tres motores especializados — para que los números nunca mientan
 ![CI](https://img.shields.io/badge/CI-quality--gate-blueviolet?style=flat-square)
 ![Tests](https://img.shields.io/badge/tests-Jest_·_Vitest_·_Pytest_·_Playwright-orange?style=flat-square)
 
+<br/>
+<br/>
+
+<img src="assets/dashboard.jpg" alt="Dashboard de mercado de CryptoCapi" width="100%"/>
+
+<sub>Terminal de mercado en tiempo real · Market Cap global · Fear &amp; Greed · dominancia BTC/ETH · ranking de activos.</sub>
+
 </div>
 
 ---
@@ -50,6 +57,18 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 | 📡 **Motor Radar** | Ingesta noticias institucionales (Bloomberg, Reuters, Cointelegraph) y genera sentimiento + resúmenes ejecutivos sin sensacionalismo. | `Python` · `Groq Llama-3.3` · `feedparser` · `BeautifulSoup` |
 | 📊 **Motor Quant PRO** | Rigor cuantitativo: Z-Score sobre 30 ventanas, filtro de Kalman para reducir ruido, exponente de Lyapunov para medir el caos del mercado y matrices de correlación de Pearson. | `NumPy` · `SciPy` · `Pandas` · `TA-Lib` |
 | ⛓️ **Motor Quant Plus** | Lee la blockchain directamente: netflows de exchanges, ratios MVRV para valoración y métricas de salud de red — antes de que la información llegue al mercado. | `Web3` · `Moralis` · `WebSockets` |
+
+---
+
+## 📸 La Plataforma en Acción
+
+<div align="center">
+
+<img src="assets/market-map.png" alt="Mapa de Mercado — treemap de capitalización" width="100%"/>
+
+<sub>**Mapa de Mercado** — visualización treemap de capitalización y rendimiento del Top 50 en un solo vistazo.</sub>
+
+</div>
 
 ---
 
@@ -143,6 +162,8 @@ flowchart LR
 ---
 
 <div align="center">
+
+<img src="assets/banner.png" alt="CryptoCapi — Capibara" width="100%"/>
 
 ## 💡 Filosofía
 
