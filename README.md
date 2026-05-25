@@ -191,8 +191,6 @@ flowchart LR
 
 <div align="center">
 
-<img src="assets/banner.png" alt="CryptoCapi — Capibara" width="100%"/>
-
 ## 💡 Filosofía
 
 > ### *"Nosotros no te decimos qué comprar.*
@@ -205,5 +203,9 @@ flowchart LR
 <br/>
 
 ![Hecho con](https://img.shields.io/badge/hecho_con-matemática_pura-blueviolet?style=for-the-badge)
+
+<br/>
+
+<img src="assets/banner.png" alt="CryptoCapi — Capibara" width="100%"/>
 
 </div>
