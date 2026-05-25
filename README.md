@@ -1,6 +1,11 @@
 <div align="center">
 
-# 🐹 CryptoCapi · Terminal de Inteligencia Institucional
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/logo-white.png">
+  <img src="assets/logo-navy.png" alt="CryptoCapi" width="120"/>
+</picture>
+
+# CryptoCapi · Terminal de Inteligencia Institucional
 
 ### *Matemática pura para decisiones cripto. Cero alucinaciones de IA.*
 
