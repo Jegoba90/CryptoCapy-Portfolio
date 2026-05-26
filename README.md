@@ -5,7 +5,7 @@
   <img src="assets/logo-navy.png" alt="CryptoCapi" width="120"/>
 </picture>
 
-# CryptoCapi · Terminal de Inteligencia Institucional
+# CryptoCapi · Análisis Cuantitativo Sin Alucinaciones
 
 ### *Matemática pura para decisiones cripto. Cero alucinaciones de IA.*
 
