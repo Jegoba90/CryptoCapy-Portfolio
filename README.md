@@ -36,10 +36,10 @@ a través de tres motores especializados, para que los números nunca mientan.
 
 - [El problema que resolvemos](#-el-problema-que-resolvemos)
 - [Arquitectura · Tres Motores Especializados](#-arquitectura--tres-motores-especializados)
-- [Pipeline Anti-Alucinación · Defensa en 4 Capas](#-pipeline-anti-alucinación--defensa-en-4-capas)
-- [Stack Tecnológico Completo](#-stack-tecnológico-completo)
+- [Pipeline Anti-Alucinación · Defensa en 4 Capas](#️-pipeline-anti-alucinación--defensa-en-4-capas)
+- [Stack Tecnológico Completo](#️-stack-tecnológico-completo)
 - [Flujo de Datos](#-flujo-de-datos)
-- [Principios de Ingeniería](#-principios-de-ingeniería)
+- [Principios de Ingeniería](#️-principios-de-ingeniería)
 - [Outputs de ejemplo · Qué devuelve cada motor](#-outputs-de-ejemplo--qué-devuelve-cada-motor)
 - [Filosofía](#-filosofía)
 
