@@ -349,6 +349,8 @@ flowchart LR
 
 <br/>
 
+
+
 <img src="assets/banner.png" alt="CryptoCapi — Capibara" width="100%"/>
 
 </div>
