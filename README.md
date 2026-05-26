@@ -10,7 +10,7 @@
 ### *Matemática pura para decisiones cripto. Cero alucinaciones de IA.*
 
 Plataforma de análisis de criptomonedas que **separa el análisis semántico del cálculo matemático**
-a través de tres motores especializados — para que los números nunca mientan.
+a través de tres motores especializados, para que los números nunca mientan.
 
 <br/>
 
