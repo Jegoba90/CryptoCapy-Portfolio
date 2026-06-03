@@ -172,11 +172,16 @@ flowchart LR
 
 > Reglas constitucionales que todo Pull Request debe cumplir.
 
+Reglas constitucionales que todo Pull Request debe cumplir.
+
 - **Zero-Any** — prohibido `any` en TypeScript y Python; lo desconocido es `unknown` + *type guards*.
+- **Tipos opacos de dominio** — `CoinId`, `WalletId` y `TransactionId` nunca son `string` planos; el compilador rechaza pasar un ID donde se espera otro, eliminando en compilación la clase entera de bugs "usé el identificador equivocado".
+- **Exhaustividad verificada por el compilador** — todo `switch` sobre una unión discriminada cierra con `assertNever`; añadir un caso nuevo y olvidar manejarlo rompe el build señalando archivo y línea — nunca producción.
 - **Arquitectura Hexagonal** — el dominio nunca depende de la infraestructura; cambiar la base de datos no toca la lógica de negocio.
 - **Contratos compartidos** — única fuente de verdad de tipos entre frontend y backend; nadie adivina la forma de la API.
 - **Cronometría determinista** — `Temporal` API (ES2025) en lugar de `Date` nativo; sin errores de zona horaria/DST en software financiero.
-- **Validación paranoica** — `Zod .strict()` en el backend + `Pydantic` en el collector; validación bilateral antes de persistir.
+- **Validación paranoica** — `Zod .strict()` por defecto en el backend + `Pydantic` en el collector; `.passthrough()` permitido solo en fronteras de confianza documentadas (engine interno, proveedor externo, config de infraestructura), nunca en entrada de usuario; validación bilateral antes de persistir.
+- **Sello criptográfico verificable** — cada motor firma sus resultados con un `protocol_hash` SHA-256 sobre inputs/outputs deterministas; alterar cualquier campo cubierto invalida el sello (*tamper-evidence*). Semántica honesta por motor: `reproducible` (recalculable sin dependencias), `output_seal` (re-verificable contra el origen) y `process_seal` (certifica el proceso, no el texto del LLM).
 - **Value Objects** — el dinero nunca es un `number` crudo; se encapsula inmutable para impedir estados inválidos.
 - **Dependencias por arquetipo** — el motor ligero calcula sin NumPy; solo el Quant Engine carga NumPy/Kalman → imágenes Docker mínimas.
 - **Gestión explícita de recursos** — `using` / `await using` (ES2025) cierran las conexiones serverless automáticamente y evitan fugas.
