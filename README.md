@@ -168,6 +168,15 @@ flowchart LR
 
 ---
 
+## 📂 Estructura del Proyecto
+
+El monorepo está organizado de forma clara y modular, separando la interfaz de usuario (Vite), la API (Node) y los servicios de recopilación/análisis cuantitativo (Python).
+
+Conoce la distribución detallada de archivos y carpetas de cada módulo en el mapa de directorios:
+👉 **[Mapa Detallado de Estructura del Proyecto (docs/project-structure.md)](docs/project-structure.md)**
+
+---
+
 ## ⚖️ Principios de Ingeniería
 
 > Reglas constitucionales que todo Pull Request debe cumplir.
