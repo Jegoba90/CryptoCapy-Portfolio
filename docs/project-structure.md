@@ -106,5 +106,12 @@ cryptocapi-refactor/
 │   ├── project-structure.md            # This file
 │   └── monitoring.md                   # Observability configuration
 │
-└── 📂 .github/                         # CI/CD (workflows), Dependabot, copilot-instructions
+└── 📂 .github/                         # 🛠️ Configuración y automatizaciones de GitHub
+    ├── 📂 workflows/                   # Recetas/instrucciones de GitHub Actions (CI/CD)
+    │   ├── quality-gate.yml            # Orquestador del Quality Gate (linters, tipos, tests)
+    │   ├── playwright.yml              # Automatización de pruebas E2E del frontend
+    │   ├── deploy.yml                  # Automatización del deploy a GCP Cloud Run/Hosting
+    │   └── setup-branch-protection.yml # Automatización de políticas de protección de ramas
+    ├── dependabot.yml                  # Alertas y actualización automática de librerías
+    └── copilot-instructions.md         # Reglas de contexto y comportamiento para Copilot
 ```
