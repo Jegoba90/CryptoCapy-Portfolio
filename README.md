@@ -41,6 +41,7 @@ a través de tres motores especializados, para que los números nunca mientan.
 - [Flujo de Datos](#-flujo-de-datos)
 - [Principios de Ingeniería](#️-principios-de-ingeniería)
 - [Outputs de ejemplo · Qué devuelve cada motor](#-outputs-de-ejemplo--qué-devuelve-cada-motor)
+- [Documentación API](#-documentación-api)
 - [Filosofía](#-filosofía)
 
 ---
@@ -351,6 +352,16 @@ Conoce la distribución detallada de archivos y carpetas de cada módulo en el m
 ```
 
 </details>
+
+---
+
+## 📖 Documentación API
+
+| Documento | Descripción |
+|:---|:---|
+| [AUTHENTICATION.md](docs/AUTHENTICATION.md) | API keys, planes, rate limits y payload shaping por tier |
+| [ENGINES.md](docs/ENGINES.md) | Universo de monedas, latencias, endpoints y cuándo usar cada motor |
+| [SEAL.md](docs/SEAL.md) | Qué garantiza el sello Math Override Certified y cómo verificarlo |
 
 ---
 

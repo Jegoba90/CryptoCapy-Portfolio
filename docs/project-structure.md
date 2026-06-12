@@ -43,7 +43,7 @@ cryptocapi-refactor/
 │
 ├── 📂 collector/                       # Python 3.12 — Radar + Quant Plus (Cloud Run Job)
 │   ├── services/
-│   │   ├── insight_service.py          # 📡 RADAR — NLP/LLM narrative (Groq 3-tier)
+│   │   ├── insight_service.py          # 📡 RADAR — NLP/LLM narrative (LLM engine multi-model)
 │   │   ├── quant_service.py            # ⛓️ QUANT PLUS — on-chain, 100% deterministic (no AI)
 │   │   ├── insights_common.py          # Shared Radar/Quant Plus code + post-LLM filters
 │   │   ├── math_engine.py              # MathContext: Z-Score (t-Student), Bollinger, regime
