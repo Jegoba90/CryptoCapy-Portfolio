@@ -65,9 +65,19 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 
 | Motor | Rol | Tecnología clave |
 |:---|:---|:---|
-| 📡 **Motor Radar** | Ingesta noticias institucionales (Bloomberg, Reuters, Cointelegraph) y genera sentimiento + resúmenes ejecutivos sin sensacionalismo. | `Python` · `LLM engine (multi-model)` · `feedparser` · `BeautifulSoup` |
-| 📊 **Motor Quant PRO** | Rigor cuantitativo: Z-Score sobre múltiples ventanas temporales, filtro de Kalman para reducir ruido, exponente de Lyapunov para medir el caos del mercado y matrices de correlación de Pearson. | `NumPy` · `SciPy` · `Pandas` · `TA-Lib` |
-| ⛓️ **Motor Quant Plus** | Lee la blockchain directamente: netflows de exchanges, ratios MVRV para valoración y métricas de salud de red — antes de que la información llegue al mercado. | `Web3` · `Web3 data provider` · `WebSockets` |
+| 📡 **Motor Radar** | Ingesta noticias institucionales (Bloomberg, Reuters, Cointelegraph) y genera sentimiento + resúmenes ejecutivos sin sensacionalismo. La matemática determinista valida o invalida la narrativa antes de publicarla. | `Python` · `LLM engine (multi-model)` · `feedparser` · `BeautifulSoup` |
+| 📊 **Motor Quant PRO** | Señal cuantitativa on-demand sobre cualquier par de Binance: filtro de Kalman adaptativo para reducir ruido, exponente de Lyapunov para detectar caos de mercado y Matriz de Intercepción de Régimen (MIR) dual-timeframe 1D/4H. | `NumPy` · `SciPy` · `Pandas` · `TA-Lib` · `Binance REST` |
+| 📈 **Motor Quant Plus** | Señales estadísticas pre-computadas sobre 50 períodos: Z-Score logarítmico con umbral t-Student (α=0.001), enriquecimiento on-chain vía RPC (congestión de red, actividad de ballenas) e insight accionable con sello SHA-256 reproducible. | `NumPy` · `SciPy` · `Pydantic` · `Mempool RPC` |
+
+### Cobertura por motor
+
+| Motor | Universo de activos | Ejecución | Latencia típica |
+|:---|:---|:---|:---|
+| 📡 Radar | ~15 monedas curadas | Pre-computado (scheduler) | < 100 ms |
+| 📊 Quant PRO | Cualquier par USDT de Binance | On-demand por request | ~2-3 s |
+| 📈 Quant Plus | ~15 monedas curadas | Pre-computado (scheduler) | < 100 ms |
+
+> Las ~15 monedas curadas incluyen 10 fijas (BTC, ETH, SOL, BNB, XRP, DOGE, TRX, USDT, USDC, LEO) más hasta 5 adicionales seleccionadas dinámicamente por volatilidad ≥ 5% en 24h del top 20 por market cap.
 
 ---
 
@@ -152,9 +162,9 @@ La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre bucket
 
 ```mermaid
 flowchart LR
-    A["🌐 Fuentes<br/>Bloomberg · Reuters · CoinGecko · On-chain"] --> B["📡 Motor Radar<br/>Python + LLM engine"]
-    A --> C["📊 Motor Quant PRO<br/>NumPy · SciPy"]
-    A --> D["⛓️ Motor Quant Plus<br/>Web3 · On-chain data"]
+    A["🌐 Fuentes<br/>Bloomberg · Reuters · CoinGecko · Binance · Mempool RPC"] --> B["📡 Motor Radar<br/>Python + LLM engine"]
+    A --> C["📊 Motor Quant PRO<br/>Kalman · Lyapunov · MIR"]
+    A --> D["📈 Motor Quant Plus<br/>Z-Score · t-Student · On-chain RPC"]
     B --> E[("🗄️ PostgreSQL<br/>Serverless")]
     C --> E
     D --> E
@@ -180,8 +190,6 @@ Conoce la distribución detallada de archivos y carpetas de cada módulo en el m
 ## ⚖️ Principios de Ingeniería
 
 > Reglas constitucionales que todo Pull Request debe cumplir.
-
-Reglas constitucionales que todo Pull Request debe cumplir.
 
 - **Zero-Any** — prohibido `any` en TypeScript y Python; lo desconocido es `unknown` + *type guards*.
 - **Tipos opacos de dominio** — `CoinId`, `WalletId` y `TransactionId` nunca son `string` planos; el compilador rechaza pasar un ID donde se espera otro, eliminando en compilación la clase entera de bugs "usé el identificador equivocado".
