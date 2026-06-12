@@ -9,8 +9,7 @@
 
 
 
-Plataforma de análisis de criptomonedas que **separa el análisis semántico del cálculo matemático**
-a través de tres motores especializados, para que los números nunca mientan.
+Plataforma de análisis de criptomonedas con tres motores especializados, dos puramente matemáticos, uno con IA auditada por Python — para que los números nunca mientan.
 
 <br/>
 
