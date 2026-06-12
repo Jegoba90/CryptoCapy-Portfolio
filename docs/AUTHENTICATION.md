@@ -140,6 +140,8 @@ When a limit is exceeded the API returns:
 
 ## Payload Shaping by Key Tier
 
+> This section applies **only to `GET /market/insights/:id` (Radar)**. All other PRO endpoints (Quant Plus, Quant Pro, Market Scanner) return `403 Forbidden` for free keys — there is no reduced-payload fallback.
+
 The `/market/insights/:id` response structure changes based on your key. **Do not assume missing fields are `null`** — they are simply absent in the free tier. Use optional chaining:
 
 ```typescript
@@ -155,7 +157,6 @@ const zScore = data.math_diagnostics?.z_score;
 | `analysis` | ❌ omitted | ✅ |
 | `math_diagnostics` | ❌ omitted | ✅ |
 | `confidence` | ❌ omitted | ✅ |
-| `math_diagnostics.audit_trail` | ❌ omitted | ✅ |
 
 ---
 
