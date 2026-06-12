@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T19:01:32.991Z",
+  "data": {
+    "engine_used": "radar",
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "summary": "Lateralización de rango.",
+    "sentiment": "neutral",
+    "statistical_anomaly_detected": false
+  }
+}

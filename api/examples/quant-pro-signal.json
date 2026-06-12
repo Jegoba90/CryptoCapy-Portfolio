@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T20:18:36.005Z",
+  "data": {
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "resolved_signal": "NEUTRAL_CHOP",
+    "resolved_score": 52,
+    "mir_diagnostics": {
+      "base_raw_score": 55,
+      "chaos_penalty_applied": true,
+      "explanation": "Convicción direccional contraída por régimen de caos sistémico detectado."
+    },
+    "macro_1d": {
+      "timeframe": "1d",
+      "confluence_score": 55,
+      "signal": "NEUTRAL_CHOP",
+      "regime": {
+        "lyapunov": 1.893,
+        "status": "CHAOTIC",
+        "signal_confidence": "LOW"
+      }
+    },
+    "micro_4h": {
+      "timeframe": "4h",
+      "confluence_score": 60,
+      "signal": "NEUTRAL_CHOP",
+      "regime": {
+        "lyapunov": 2.031,
+        "status": "CHAOTIC",
+        "signal_confidence": "LOW"
+      }
+    }
+  }
+}

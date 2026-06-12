@@ -1,0 +1,38 @@
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T20:17:29.969Z",
+  "data": {
+    "engine_used": "quant_plus",
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "summary": "Equilibrio técnico.",
+    "sentiment": "neutral",
+    "statistical_anomaly_detected": false,
+    "confidence": {
+      "score": 0.61,
+      "label": "MEDIUM"
+    },
+    "onchain_stats": {
+      "network": "bitcoin-mainnet",
+      "network_congestion": "LOW",
+      "whale_activity_alert": true,
+      "onchain_confidence_score": 0.9
+    },
+    "actionable_insight": {
+      "signal": "HOLD",
+      "risk_level": "LOW"
+    },
+    "math_diagnostics": {
+      "z_score": 0.1705,
+      "bollinger_bandwidth": 0.0988,
+      "market_regime": "RANGING_CHOP",
+      "extreme_volatility_detected": false,
+      "data_quality": "OPTIMAL",
+      "sentiment_override": false,
+      "anomaly_details": null
+    },
+    "analysis": {
+      "detailed_report": "Régimen de mercado: lateralización. Precio opera en el tercio inferior de las bandas de Bollinger. Z-Score (0.17) en zona neutral — sin anomalías estadísticas."
+    }
+  }
+}

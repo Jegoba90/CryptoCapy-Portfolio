@@ -1,0 +1,41 @@
+{
+  "status": "success",
+  "version": "1.0.0",
+  "timestamp": "2026-05-25T19:01:32.991Z",
+  "data": {
+    "engine_used": "radar",
+    "asset": { "id": "bitcoin", "symbol": "BTC" },
+    "summary": "Lateralización de rango.",
+    "sentiment": "neutral",
+    "statistical_anomaly_detected": false,
+    "confidence": {
+      "score": 0.61,
+      "label": "MEDIUM"
+    },
+    "math_diagnostics": {
+      "z_score": -0.1598,
+      "bollinger_bandwidth": 0.012,
+      "market_regime": "RANGING_CHOP",
+      "extreme_volatility_detected": false,
+      "data_quality": "PARTIAL",
+      "sentiment_override": false,
+      "anomaly_details": null
+    },
+    "analysis": {
+      "detailed_report": "El activo opera en un rango lateral, con el precio cerca de la banda inferior de soporte. La volatilidad es moderada. El régimen de mercado sugiere una fase de indecisión.",
+      "sources_verified": [
+        {
+          "title": "Bitcoin, crypto prices tick up as US-Iran peace deal odds climb",
+          "url": "https://www.coindesk.com/markets/2026/05/25/...",
+          "credibility": "Tier 1"
+        },
+        {
+          "title": "Now You Can Buy Bitcoin, XRP and More in ChatGPT via MoonPay",
+          "url": "https://decrypt.co/368875/...",
+          "credibility": "Tier 2"
+        }
+      ],
+      "sources_window": "24h"
+    }
+  }
+}
