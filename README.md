@@ -36,6 +36,7 @@ Plataforma de análisis de criptomonedas con tres motores especializados, dos pu
 - [El problema que resolvemos](#-el-problema-que-resolvemos)
 - [Arquitectura · Tres Motores Especializados](#-arquitectura--tres-motores-especializados)
 - [Pipeline Anti-Alucinación · Defensa en 4 Capas](#️-pipeline-anti-alucinación--defensa-en-4-capas)
+- [Pruébalo ahora](#-pruébalo-ahora)
 - [Stack Tecnológico Completo](#️-stack-tecnológico-completo)
 - [Flujo de Datos](#-flujo-de-datos)
 - [Principios de Ingeniería](#️-principios-de-ingeniería)
@@ -95,6 +96,21 @@ Lyapunov y datos on-chain leídos directamente de la blockchain.
 **Umbrales inmutables:** cambios de volatilidad extrema o rupturas de bandas estadísticas disparan alertas automáticas. Anomalías de mercado se detectan mediante umbrales de Z-Score calibrados sobre datos históricos.
 
 La resiliencia de IA se apoya en **cadenas de fallback multi-modelo sobre buckets de cuota independientes** con *backoff* exponencial, de modo que ningún motor agote la capacidad de otro.
+
+---
+
+## 🚀 Pruébalo ahora
+
+**Sin registro.** La demo key pública (limitada a BTC y ETH, 30 req/hora por IP) devuelve el payload Alpha completo, sello `audit_trail` incluido:
+
+```bash
+curl -H "x-api-key: demo_btc_eth_public" \
+  "https://api.cryptocapi.com/v1/market/insights/bitcoin?view=alpha"
+```
+
+**En tu terminal.** El agente open source [anti-hallucination-crypto-agent](https://github.com/Jegoba90/anti-hallucination-crypto-agent) consume esta API en vivo, muestra qué eliminó o sobrescribió el pipeline sobre la salida de la IA (`filters_applied`, `fields_overridden`) y te enseña a verificar el `protocol_hash` por tu cuenta. Viene con la demo key precargada: clonar y ejecutar.
+
+**Trial PRO de 14 días, sin tarjeta,** para el resto de monedas y los motores Quant: [cryptocapi.com](https://cryptocapi.com)
 
 ---
 
@@ -212,46 +228,69 @@ Conoce la distribución detallada de archivos y carpetas de cada módulo en el m
 
 ## 🔬 Outputs de ejemplo · Qué devuelve cada motor
 
-> Respuestas reales del sistema sobre **BTC · 2026-05-25**. Los datos de entrada, umbrales internos y pesos de indicadores no se publican.
+> Respuestas reales del sistema sobre **BTC**. Radar capturado el **2026-07-16** con la demo key pública; Quant PRO y Quant Plus, el **2026-05-25**. Los pesos internos de los indicadores no se publican.
 
 <details>
-<summary>📡 Motor Radar — Sentimiento institucional</summary>
+<summary>📡 Motor Radar — Sentimiento institucional · sello audit_trail</summary>
 
 ```json
 {
   "status": "success",
   "version": "1.0.0",
-  "timestamp": "2026-05-25T19:01:32.991Z",
+  "timestamp": "2026-07-16T16:33:49.044Z",
   "data": {
     "engine_used": "radar",
     "asset": { "id": "bitcoin", "symbol": "BTC" },
-    "summary": "Lateralización de rango.",
+    "summary": "Equilibrio técnico.",
     "sentiment": "neutral",
     "statistical_anomaly_detected": false,
     "confidence": {
-      "score": 0.61,
+      "score": 0.6,
       "label": "MEDIUM"
     },
     "math_diagnostics": {
-      "z_score": -0.1598,
-      "bollinger_bandwidth": 0.012,
+      "z_score": 0.015,
+      "z_score_threshold": 3.5051,
+      "bollinger_bandwidth": 0.1195,
       "market_regime": "RANGING_CHOP",
       "extreme_volatility_detected": false,
-      "data_quality": "PARTIAL",
+      "data_quality": "OPTIMAL",
+      "data_quality_reason": [],
       "sentiment_override": false,
-      "anomaly_details": null
+      "anomaly_details": null,
+      "regime_thresholds": {
+        "volatility_hard_limit": 0.05,
+        "z_score_anomaly_boundary": 3.5051,
+        "daily_change_trend_boundary": 0.02
+      },
+      "audit_trail": {
+        "protocol_hash": "0x1fc3502d2b4632e28c60c8b8dbe5c87bb35df1936c09723d043f9457c27e8f28",
+        "calculated_at": "2026-07-16T16:33:48.661922Z",
+        "seal_type": "process_seal",
+        "algorithm_id": "Radar 4-Layer Anti-Hallucination Pipeline",
+        "engine_version": "v2.1.0-radar",
+        "filters_applied": [],
+        "fields_overridden": [
+          "analysis.anomaly_details",
+          "analysis.confidence",
+          "analysis.sentiment_score",
+          "confidence",
+          "is_volatility_alert"
+        ],
+        "sentiment_override": false
+      }
     },
     "analysis": {
-      "detailed_report": "El activo opera en un rango lateral, con el precio cerca de la banda inferior de soporte. La volatilidad es moderada. El régimen de mercado sugiere una fase de indecisión.",
+      "detailed_report": "La posición en Bandas de Bollinger es TERCIO_SUPERIOR. El precio opera en un régimen de lateralización, sin un catalizador fundamental evidente en las noticias recientes.",
       "sources_verified": [
         {
-          "title": "Bitcoin, crypto prices tick up as US-Iran peace deal odds climb",
-          "url": "https://www.coindesk.com/markets/2026/05/25/...",
+          "title": "The most popular bitcoin call option has slipped by $10,000",
+          "url": "https://www.coindesk.com/daybook-us/2026/07/16/the-most-popular-bitcoin-call-option-has-slipped-by-usd10-000",
           "credibility": "Tier 1"
         },
         {
-          "title": "Now You Can Buy Bitcoin, XRP and More in ChatGPT via MoonPay",
-          "url": "https://decrypt.co/368875/...",
+          "title": "Dormant Bitcoin Whale Moves $383 Million After More Than 8 Years",
+          "url": "https://decrypt.co/373646/bitcoin-whale-moves-383-million-after-eight-years",
           "credibility": "Tier 2"
         }
       ],
@@ -260,6 +299,8 @@ Conoce la distribución detallada de archivos y carpetas de cada módulo en el m
   }
 }
 ```
+
+> El `audit_trail` declara qué corrigió Python sobre la salida del LLM: `fields_overridden` lista los campos sobrescritos con valores deterministas y `filters_applied` los filtros léxicos que se dispararon. Cómo verificar el hash: [SEAL.md](docs/SEAL.md). `sources_verified` está abreviado aquí; la respuesta íntegra está en [api/examples/radar-alpha.json](api/examples/radar-alpha.json).
 
 </details>
 

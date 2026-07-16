@@ -25,12 +25,24 @@ Your key format tells you your current plan:
 |---|---|---|
 | `sk_live_…` | **PRO / Alpha** | Full access — all engines, deep analysis, `audit_trail` |
 | `flash_…` | **Free / Pulse** | Public data + Pulse View (summaries only, numeric fields stripped) |
+| `demo_btc_eth_public` | **Demo** | Shared public key — Radar insights for `bitcoin`/`ethereum` only, full Alpha payload |
 
-Keys are obtained via `GET /payment/me` after authenticating with Firebase.
+Keys are obtained via `GET /payment/me` after authenticating with Firebase. The demo key requires no account at all — it is published as-is.
 
 ---
 
 ## Plans
+
+### Demo (public key, no signup)
+- One shared public key for instant testing: `demo_btc_eth_public`.
+- Works **only** on `/market/insights/bitcoin` and `/market/insights/ethereum`, returning the **full Alpha payload** including the `audit_trail` seal.
+- Any other coin returns `403 DEMO_COIN_RESTRICTED`. All `/quant/*` endpoints require a real PRO key.
+- Rate limit: **30 requests / hour**, scoped per IP so one abuser cannot exhaust the shared key.
+
+```http
+GET /v1/market/insights/bitcoin?view=alpha
+x-api-key: demo_btc_eth_public
+```
 
 ### Free (Pulse View)
 - No payment required — a `flash_` key is created automatically on registration.
@@ -109,6 +121,7 @@ Limits are enforced per API key on a rolling 1-hour window, with an additional b
 
 | Plan | Hourly limit | Burst limit |
 |---|---|---|
+| Demo (`demo_btc_eth_public`) | 30 req / hour (per IP) | 5 req / 2 seconds |
 | Free (`flash_`) | 1,000 req / hour | 20 req / 2 seconds |
 | PRO (`sk_live_`) | 10,000 req / hour | 20 req / 2 seconds |
 
@@ -168,3 +181,4 @@ const zScore = data.math_diagnostics?.z_score;
 | `403` | `ERR_FORBIDDEN` | Valid key but insufficient plan for this endpoint |
 | `429` | `ERR_RATE_LIMIT` | Hourly or burst limit exceeded |
 | `400` | `ERR_TRIAL_CLAIMED` | Trial already activated for this account |
+| `403` | `DEMO_COIN_RESTRICTED` | Demo key used on a coin other than `bitcoin`/`ethereum` |
