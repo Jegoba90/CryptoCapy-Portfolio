@@ -41,6 +41,7 @@ Plataforma de análisis de criptomonedas con tres motores especializados, dos pu
 - [Flujo de Datos](#-flujo-de-datos)
 - [Principios de Ingeniería](#️-principios-de-ingeniería)
 - [Outputs de ejemplo · Qué devuelve cada motor](#-outputs-de-ejemplo--qué-devuelve-cada-motor)
+- [Nativo para agentes](#-nativo-para-agentes)
 - [Documentación API](#-documentación-api)
 - [Filosofía](#-filosofía)
 
@@ -402,6 +403,22 @@ Conoce la distribución detallada de archivos y carpetas de cada módulo en el m
 | [AUTHENTICATION.md](docs/AUTHENTICATION.md) | API keys, planes, rate limits y payload shaping por tier |
 | [ENGINES.md](docs/ENGINES.md) | Universo de monedas, latencias, endpoints y cuándo usar cada motor |
 | [SEAL.md](docs/SEAL.md) | Qué garantiza el sello Math Override Certified y cómo verificarlo |
+
+---
+
+## 🤖 Nativo para agentes
+
+El API está pensado para que lo consuma una máquina, no solo una persona. Un archivo [`llms.txt`](https://www.cryptocapi.com/llms.txt) **en vivo** describe cada endpoint, sus parámetros y la forma de las respuestas en el formato estándar que leen los agentes de IA. Tu asistente en Claude Code, Cursor o Copilot descubre toda la superficie del API por su cuenta, sin que escribas una línea de código de integración.
+
+| Recurso | Para qué sirve |
+|:---|:---|
+| [`llms.txt` en vivo](https://www.cryptocapi.com/llms.txt) | Mapa legible por agentes de todos los endpoints, autenticación y rate limits |
+| [Guía de IA y agentes](https://cryptocapi.com/docs/agentes) | Cómo integrar el API dentro de un flujo agéntico |
+| [Especificación OpenAPI](https://api.cryptocapi.com/v1/docs) | Contrato completo y navegable del API v1 |
+
+**Funciona donde construyas:** Claude Code · Cursor · GitHub Copilot · ChatGPT · LangChain · cualquier cliente REST.
+
+¿Quieres verlo funcionando? El agente open source [anti-hallucination-crypto-agent](https://github.com/Jegoba90/anti-hallucination-crypto-agent) consume este API en vivo y verifica el sello por su cuenta. Es el ejemplo ejecutable de todo lo anterior.
 
 ---
 
